@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+service CRUD {
+    
+    // RPC Insert Data
+    rpc Insert (InsertRequest) returns (StatusResponse) {} 
+
+}
+
+message InsertRequest {
+    string id = 1;
+    string name = 2;
+    string city = 3;
+}
+
+message StatusResponse {
+    string message = 1;
+}
+
