@@ -116,25 +116,159 @@ func (m *StatusResponse) GetMessage() string {
 	return ""
 }
 
+type DataId struct {
+	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *DataId) Reset()         { *m = DataId{} }
+func (m *DataId) String() string { return proto.CompactTextString(m) }
+func (*DataId) ProtoMessage()    {}
+func (*DataId) Descriptor() ([]byte, []int) {
+	return fileDescriptor_478bbe1b22b2e995, []int{2}
+}
+
+func (m *DataId) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DataId.Unmarshal(m, b)
+}
+func (m *DataId) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DataId.Marshal(b, m, deterministic)
+}
+func (m *DataId) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DataId.Merge(m, src)
+}
+func (m *DataId) XXX_Size() int {
+	return xxx_messageInfo_DataId.Size(m)
+}
+func (m *DataId) XXX_DiscardUnknown() {
+	xxx_messageInfo_DataId.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DataId proto.InternalMessageInfo
+
+func (m *DataId) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
+
+type Empty struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Empty) Reset()         { *m = Empty{} }
+func (m *Empty) String() string { return proto.CompactTextString(m) }
+func (*Empty) ProtoMessage()    {}
+func (*Empty) Descriptor() ([]byte, []int) {
+	return fileDescriptor_478bbe1b22b2e995, []int{3}
+}
+
+func (m *Empty) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Empty.Unmarshal(m, b)
+}
+func (m *Empty) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Empty.Marshal(b, m, deterministic)
+}
+func (m *Empty) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Empty.Merge(m, src)
+}
+func (m *Empty) XXX_Size() int {
+	return xxx_messageInfo_Empty.Size(m)
+}
+func (m *Empty) XXX_DiscardUnknown() {
+	xxx_messageInfo_Empty.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Empty proto.InternalMessageInfo
+
+type DataResponse struct {
+	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	City                 string   `protobuf:"bytes,3,opt,name=city,proto3" json:"city,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *DataResponse) Reset()         { *m = DataResponse{} }
+func (m *DataResponse) String() string { return proto.CompactTextString(m) }
+func (*DataResponse) ProtoMessage()    {}
+func (*DataResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_478bbe1b22b2e995, []int{4}
+}
+
+func (m *DataResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_DataResponse.Unmarshal(m, b)
+}
+func (m *DataResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_DataResponse.Marshal(b, m, deterministic)
+}
+func (m *DataResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DataResponse.Merge(m, src)
+}
+func (m *DataResponse) XXX_Size() int {
+	return xxx_messageInfo_DataResponse.Size(m)
+}
+func (m *DataResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_DataResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_DataResponse proto.InternalMessageInfo
+
+func (m *DataResponse) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
+
+func (m *DataResponse) GetName() string {
+	if m != nil {
+		return m.Name
+	}
+	return ""
+}
+
+func (m *DataResponse) GetCity() string {
+	if m != nil {
+		return m.City
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*InsertRequest)(nil), "InsertRequest")
 	proto.RegisterType((*StatusResponse)(nil), "StatusResponse")
+	proto.RegisterType((*DataId)(nil), "DataId")
+	proto.RegisterType((*Empty)(nil), "Empty")
+	proto.RegisterType((*DataResponse)(nil), "DataResponse")
 }
 
 func init() { proto.RegisterFile("crud.proto", fileDescriptor_478bbe1b22b2e995) }
 
 var fileDescriptor_478bbe1b22b2e995 = []byte{
-	// 159 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4a, 0x2e, 0x2a, 0x4d,
-	0xd1, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x57, 0x72, 0xe7, 0xe2, 0xf5, 0xcc, 0x2b, 0x4e, 0x2d, 0x2a,
-	0x09, 0x4a, 0x2d, 0x2c, 0x4d, 0x2d, 0x2e, 0x11, 0xe2, 0xe3, 0x62, 0xca, 0x4c, 0x91, 0x60, 0x54,
-	0x60, 0xd4, 0xe0, 0x0c, 0x62, 0xca, 0x4c, 0x11, 0x12, 0xe2, 0x62, 0xc9, 0x4b, 0xcc, 0x4d, 0x95,
-	0x60, 0x02, 0x8b, 0x80, 0xd9, 0x20, 0xb1, 0xe4, 0xcc, 0x92, 0x4a, 0x09, 0x66, 0x88, 0x18, 0x88,
-	0xad, 0xa4, 0xc5, 0xc5, 0x17, 0x5c, 0x92, 0x58, 0x52, 0x5a, 0x1c, 0x94, 0x5a, 0x5c, 0x90, 0x9f,
-	0x57, 0x9c, 0x2a, 0x24, 0xc1, 0xc5, 0x9e, 0x9b, 0x5a, 0x5c, 0x9c, 0x98, 0x9e, 0x0a, 0x35, 0x0e,
-	0xc6, 0x35, 0x32, 0xe6, 0x62, 0x71, 0x0e, 0x0a, 0x75, 0x11, 0xd2, 0xe6, 0x62, 0x83, 0x58, 0x2e,
-	0xc4, 0xa7, 0x87, 0xe2, 0x0a, 0x29, 0x7e, 0x3d, 0x54, 0xc3, 0x94, 0x18, 0x92, 0xd8, 0xc0, 0x0e,
-	0x36, 0x06, 0x04, 0x00, 0x00, 0xff, 0xff, 0x49, 0x9e, 0xfa, 0x0e, 0xbe, 0x00, 0x00, 0x00,
+	// 249 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x91, 0xcd, 0x4a, 0xc3, 0x40,
+	0x14, 0x85, 0x9b, 0x18, 0x27, 0x78, 0xb1, 0x11, 0xee, 0x6a, 0xe8, 0xaa, 0x0e, 0x2e, 0x44, 0x61,
+	0x10, 0x7d, 0x04, 0xa3, 0x52, 0x70, 0x95, 0xd2, 0x07, 0x18, 0x3b, 0x17, 0x0d, 0x98, 0x1f, 0x73,
+	0x6f, 0x90, 0x3e, 0xa3, 0x2f, 0x25, 0x99, 0xf8, 0x57, 0xbb, 0x11, 0x77, 0x77, 0x0e, 0x87, 0x73,
+	0xbe, 0xc3, 0x00, 0xac, 0xbb, 0xde, 0xdb, 0xb6, 0x6b, 0xa4, 0x31, 0x77, 0x30, 0x5d, 0xd4, 0x4c,
+	0x9d, 0x14, 0xf4, 0xd2, 0x13, 0x0b, 0x66, 0x10, 0x97, 0x5e, 0x47, 0xf3, 0xe8, 0xf4, 0xa0, 0x88,
+	0x4b, 0x8f, 0x08, 0x49, 0xed, 0x2a, 0xd2, 0x71, 0x50, 0xc2, 0x3d, 0x68, 0xeb, 0x52, 0x36, 0x7a,
+	0x6f, 0xd4, 0x86, 0xdb, 0x9c, 0x41, 0xb6, 0x14, 0x27, 0x3d, 0x17, 0xc4, 0x6d, 0x53, 0x33, 0xa1,
+	0x86, 0xb4, 0x22, 0x66, 0xf7, 0x48, 0x1f, 0x71, 0x9f, 0x4f, 0xa3, 0x41, 0xe5, 0x4e, 0xdc, 0xc2,
+	0xff, 0x6e, 0x33, 0x29, 0xec, 0xdf, 0x54, 0xad, 0x6c, 0xcc, 0x2d, 0x1c, 0x0e, 0x96, 0xaf, 0xb0,
+	0x7f, 0x62, 0x5d, 0xbe, 0x45, 0x90, 0x5c, 0x17, 0xab, 0x1c, 0xcf, 0x41, 0x8d, 0x43, 0x31, 0xb3,
+	0x5b, 0x8b, 0x67, 0x47, 0x76, 0x1b, 0xdc, 0x4c, 0xf0, 0x18, 0x92, 0xfb, 0x92, 0x05, 0x95, 0x0d,
+	0x34, 0xb3, 0xa9, 0xfd, 0x09, 0x63, 0x26, 0x17, 0x11, 0xce, 0x21, 0x59, 0x3e, 0x35, 0xaf, 0x98,
+	0xda, 0x71, 0xca, 0x8e, 0x67, 0x68, 0x5c, 0xb5, 0xde, 0x09, 0xfd, 0xa5, 0xf1, 0x04, 0x54, 0x4e,
+	0xcf, 0x24, 0xf4, 0x1d, 0xb8, 0xeb, 0x7a, 0x50, 0xe1, 0xd3, 0xae, 0xde, 0x03, 0x00, 0x00, 0xff,
+	0xff, 0x66, 0x05, 0xfa, 0xf7, 0xc2, 0x01, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -151,6 +285,10 @@ const _ = grpc.SupportPackageIsVersion4
 type CRUDClient interface {
 	// RPC Insert Data
 	Insert(ctx context.Context, in *InsertRequest, opts ...grpc.CallOption) (*StatusResponse, error)
+	List(ctx context.Context, in *Empty, opts ...grpc.CallOption) (CRUD_ListClient, error)
+	Show(ctx context.Context, in *DataId, opts ...grpc.CallOption) (*DataResponse, error)
+	Update(ctx context.Context, in *InsertRequest, opts ...grpc.CallOption) (*StatusResponse, error)
+	Delete(ctx context.Context, in *DataId, opts ...grpc.CallOption) (*StatusResponse, error)
 }
 
 type cRUDClient struct {
@@ -170,10 +308,73 @@ func (c *cRUDClient) Insert(ctx context.Context, in *InsertRequest, opts ...grpc
 	return out, nil
 }
 
+func (c *cRUDClient) List(ctx context.Context, in *Empty, opts ...grpc.CallOption) (CRUD_ListClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_CRUD_serviceDesc.Streams[0], "/CRUD/List", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &cRUDListClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type CRUD_ListClient interface {
+	Recv() (*DataResponse, error)
+	grpc.ClientStream
+}
+
+type cRUDListClient struct {
+	grpc.ClientStream
+}
+
+func (x *cRUDListClient) Recv() (*DataResponse, error) {
+	m := new(DataResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *cRUDClient) Show(ctx context.Context, in *DataId, opts ...grpc.CallOption) (*DataResponse, error) {
+	out := new(DataResponse)
+	err := c.cc.Invoke(ctx, "/CRUD/Show", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cRUDClient) Update(ctx context.Context, in *InsertRequest, opts ...grpc.CallOption) (*StatusResponse, error) {
+	out := new(StatusResponse)
+	err := c.cc.Invoke(ctx, "/CRUD/Update", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cRUDClient) Delete(ctx context.Context, in *DataId, opts ...grpc.CallOption) (*StatusResponse, error) {
+	out := new(StatusResponse)
+	err := c.cc.Invoke(ctx, "/CRUD/Delete", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CRUDServer is the server API for CRUD service.
 type CRUDServer interface {
 	// RPC Insert Data
 	Insert(context.Context, *InsertRequest) (*StatusResponse, error)
+	List(*Empty, CRUD_ListServer) error
+	Show(context.Context, *DataId) (*DataResponse, error)
+	Update(context.Context, *InsertRequest) (*StatusResponse, error)
+	Delete(context.Context, *DataId) (*StatusResponse, error)
 }
 
 func RegisterCRUDServer(s *grpc.Server, srv CRUDServer) {
@@ -198,6 +399,81 @@ func _CRUD_Insert_Handler(srv interface{}, ctx context.Context, dec func(interfa
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CRUD_List_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(Empty)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(CRUDServer).List(m, &cRUDListServer{stream})
+}
+
+type CRUD_ListServer interface {
+	Send(*DataResponse) error
+	grpc.ServerStream
+}
+
+type cRUDListServer struct {
+	grpc.ServerStream
+}
+
+func (x *cRUDListServer) Send(m *DataResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func _CRUD_Show_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DataId)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CRUDServer).Show(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CRUD/Show",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CRUDServer).Show(ctx, req.(*DataId))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CRUD_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InsertRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CRUDServer).Update(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CRUD/Update",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CRUDServer).Update(ctx, req.(*InsertRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CRUD_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DataId)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CRUDServer).Delete(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CRUD/Delete",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CRUDServer).Delete(ctx, req.(*DataId))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _CRUD_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "CRUD",
 	HandlerType: (*CRUDServer)(nil),
@@ -206,7 +482,25 @@ var _CRUD_serviceDesc = grpc.ServiceDesc{
 			MethodName: "Insert",
 			Handler:    _CRUD_Insert_Handler,
 		},
+		{
+			MethodName: "Show",
+			Handler:    _CRUD_Show_Handler,
+		},
+		{
+			MethodName: "Update",
+			Handler:    _CRUD_Update_Handler,
+		},
+		{
+			MethodName: "Delete",
+			Handler:    _CRUD_Delete_Handler,
+		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "List",
+			Handler:       _CRUD_List_Handler,
+			ServerStreams: true,
+		},
+	},
 	Metadata: "crud.proto",
 }

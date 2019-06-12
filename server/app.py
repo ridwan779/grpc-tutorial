@@ -2,6 +2,8 @@ from pymongo import MongoClient
 from concurrent import futures
 import time
 import logging
+import json
+from bson.objectid import ObjectId
 
 import grpc
 
@@ -24,9 +26,58 @@ class CRUD(crud_pb2_grpc.CRUDServicer):
         }
 
         employee.insert_one(data_insert)
-
         return crud_pb2.StatusResponse(message='Success Insert Data With Name: ' + request.name)
 
+    def List(self, request, context):
+        client = MongoClient()
+        db = client['crud-grpc']
+        employee = db.employees
+
+        employees = employee.find({})
+        
+        for data in employees:
+            if data is not None:
+                listdata = crud_pb2.DataResponse(
+                    id=str(data["_id"]),
+                    name=data["name"],
+                    city=data["city"]
+                )
+                yield listdata
+
+    def Show(self, request, context):
+        client = MongoClient()
+        db = client['crud-grpc']
+        employee = db.employees
+
+        employees = employee.find_one({"_id": ObjectId(request.id)})
+
+        return crud_pb2.DataResponse(
+            id=str(employees["_id"]),
+            name=employees["name"],
+            city=employees["city"]
+        )
+
+    def Update(self, request, context):
+        client = MongoClient()
+        db = client['crud-grpc']
+        employee = db.employees
+
+        data_update = {
+            'name': request.name,
+            'city': request.city,
+        }
+        employee.replace_one({"_id": ObjectId(request.id)}, data_update)
+
+        return crud_pb2.StatusResponse(message='Success Update Data With Name: ' + request.name)
+
+    def Delete(self, request, context):
+        client = MongoClient()
+        db = client['crud-grpc']
+        employee = db.employees
+        
+        employee.delete_one({'_id': ObjectId(request.id)})
+
+        return crud_pb2.StatusResponse(message="Success Delete Data With Id: " + request.id)
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))

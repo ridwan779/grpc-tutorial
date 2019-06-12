@@ -3,8 +3,15 @@ syntax = "proto3";
 service CRUD {
     
     // RPC Insert Data
-    rpc Insert (InsertRequest) returns (StatusResponse) {} 
+    rpc Insert (InsertRequest) returns (StatusResponse) {}
 
+    rpc List (Empty) returns (stream DataResponse) {}
+
+    rpc Show (DataId) returns (DataResponse) {}
+
+    rpc Update (InsertRequest) returns (StatusResponse) {}
+
+    rpc Delete (DataId) returns (StatusResponse) {}
 }
 
 message InsertRequest {
@@ -15,5 +22,19 @@ message InsertRequest {
 
 message StatusResponse {
     string message = 1;
+}
+
+message DataId {
+    string id = 1;
+}
+
+message Empty {
+
+}
+
+message DataResponse {
+    string id = 1;
+    string name = 2;
+    string city = 3;
 }
 

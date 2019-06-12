@@ -19,6 +19,26 @@ class CRUDStub(object):
         request_serializer=crud__pb2.InsertRequest.SerializeToString,
         response_deserializer=crud__pb2.StatusResponse.FromString,
         )
+    self.List = channel.unary_stream(
+        '/CRUD/List',
+        request_serializer=crud__pb2.Empty.SerializeToString,
+        response_deserializer=crud__pb2.DataResponse.FromString,
+        )
+    self.Show = channel.unary_unary(
+        '/CRUD/Show',
+        request_serializer=crud__pb2.DataId.SerializeToString,
+        response_deserializer=crud__pb2.DataResponse.FromString,
+        )
+    self.Update = channel.unary_unary(
+        '/CRUD/Update',
+        request_serializer=crud__pb2.InsertRequest.SerializeToString,
+        response_deserializer=crud__pb2.StatusResponse.FromString,
+        )
+    self.Delete = channel.unary_unary(
+        '/CRUD/Delete',
+        request_serializer=crud__pb2.DataId.SerializeToString,
+        response_deserializer=crud__pb2.StatusResponse.FromString,
+        )
 
 
 class CRUDServicer(object):
@@ -32,12 +52,60 @@ class CRUDServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def List(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def Show(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def Update(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def Delete(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_CRUDServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'Insert': grpc.unary_unary_rpc_method_handler(
           servicer.Insert,
           request_deserializer=crud__pb2.InsertRequest.FromString,
+          response_serializer=crud__pb2.StatusResponse.SerializeToString,
+      ),
+      'List': grpc.unary_stream_rpc_method_handler(
+          servicer.List,
+          request_deserializer=crud__pb2.Empty.FromString,
+          response_serializer=crud__pb2.DataResponse.SerializeToString,
+      ),
+      'Show': grpc.unary_unary_rpc_method_handler(
+          servicer.Show,
+          request_deserializer=crud__pb2.DataId.FromString,
+          response_serializer=crud__pb2.DataResponse.SerializeToString,
+      ),
+      'Update': grpc.unary_unary_rpc_method_handler(
+          servicer.Update,
+          request_deserializer=crud__pb2.InsertRequest.FromString,
+          response_serializer=crud__pb2.StatusResponse.SerializeToString,
+      ),
+      'Delete': grpc.unary_unary_rpc_method_handler(
+          servicer.Delete,
+          request_deserializer=crud__pb2.DataId.FromString,
           response_serializer=crud__pb2.StatusResponse.SerializeToString,
       ),
   }

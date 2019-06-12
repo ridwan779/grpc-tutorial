@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\ncrud.proto\"7\n\rInsertRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04\x63ity\x18\x03 \x01(\t\"!\n\x0eStatusResponse\x12\x0f\n\x07message\x18\x01 \x01(\t23\n\x04\x43RUD\x12+\n\x06Insert\x12\x0e.InsertRequest\x1a\x0f.StatusResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\ncrud.proto\"7\n\rInsertRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04\x63ity\x18\x03 \x01(\t\"!\n\x0eStatusResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x14\n\x06\x44\x61taId\x12\n\n\x02id\x18\x01 \x01(\t\"\x07\n\x05\x45mpty\"6\n\x0c\x44\x61taResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x0c\n\x04\x63ity\x18\x03 \x01(\t2\xcb\x01\n\x04\x43RUD\x12+\n\x06Insert\x12\x0e.InsertRequest\x1a\x0f.StatusResponse\"\x00\x12!\n\x04List\x12\x06.Empty\x1a\r.DataResponse\"\x00\x30\x01\x12 \n\x04Show\x12\x07.DataId\x1a\r.DataResponse\"\x00\x12+\n\x06Update\x12\x0e.InsertRequest\x1a\x0f.StatusResponse\"\x00\x12$\n\x06\x44\x65lete\x12\x07.DataId\x1a\x0f.StatusResponse\"\x00\x62\x06proto3')
 )
 
 
@@ -101,8 +101,111 @@ _STATUSRESPONSE = _descriptor.Descriptor(
   serialized_end=104,
 )
 
+
+_DATAID = _descriptor.Descriptor(
+  name='DataId',
+  full_name='DataId',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='DataId.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=106,
+  serialized_end=126,
+)
+
+
+_EMPTY = _descriptor.Descriptor(
+  name='Empty',
+  full_name='Empty',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=128,
+  serialized_end=135,
+)
+
+
+_DATARESPONSE = _descriptor.Descriptor(
+  name='DataResponse',
+  full_name='DataResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='DataResponse.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='name', full_name='DataResponse.name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='city', full_name='DataResponse.city', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=137,
+  serialized_end=191,
+)
+
 DESCRIPTOR.message_types_by_name['InsertRequest'] = _INSERTREQUEST
 DESCRIPTOR.message_types_by_name['StatusResponse'] = _STATUSRESPONSE
+DESCRIPTOR.message_types_by_name['DataId'] = _DATAID
+DESCRIPTOR.message_types_by_name['Empty'] = _EMPTY
+DESCRIPTOR.message_types_by_name['DataResponse'] = _DATARESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 InsertRequest = _reflection.GeneratedProtocolMessageType('InsertRequest', (_message.Message,), dict(
@@ -119,6 +222,27 @@ StatusResponse = _reflection.GeneratedProtocolMessageType('StatusResponse', (_me
   ))
 _sym_db.RegisterMessage(StatusResponse)
 
+DataId = _reflection.GeneratedProtocolMessageType('DataId', (_message.Message,), dict(
+  DESCRIPTOR = _DATAID,
+  __module__ = 'crud_pb2'
+  # @@protoc_insertion_point(class_scope:DataId)
+  ))
+_sym_db.RegisterMessage(DataId)
+
+Empty = _reflection.GeneratedProtocolMessageType('Empty', (_message.Message,), dict(
+  DESCRIPTOR = _EMPTY,
+  __module__ = 'crud_pb2'
+  # @@protoc_insertion_point(class_scope:Empty)
+  ))
+_sym_db.RegisterMessage(Empty)
+
+DataResponse = _reflection.GeneratedProtocolMessageType('DataResponse', (_message.Message,), dict(
+  DESCRIPTOR = _DATARESPONSE,
+  __module__ = 'crud_pb2'
+  # @@protoc_insertion_point(class_scope:DataResponse)
+  ))
+_sym_db.RegisterMessage(DataResponse)
+
 
 
 _CRUD = _descriptor.ServiceDescriptor(
@@ -127,8 +251,8 @@ _CRUD = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=106,
-  serialized_end=157,
+  serialized_start=194,
+  serialized_end=397,
   methods=[
   _descriptor.MethodDescriptor(
     name='Insert',
@@ -136,6 +260,42 @@ _CRUD = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=_INSERTREQUEST,
+    output_type=_STATUSRESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='List',
+    full_name='CRUD.List',
+    index=1,
+    containing_service=None,
+    input_type=_EMPTY,
+    output_type=_DATARESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Show',
+    full_name='CRUD.Show',
+    index=2,
+    containing_service=None,
+    input_type=_DATAID,
+    output_type=_DATARESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Update',
+    full_name='CRUD.Update',
+    index=3,
+    containing_service=None,
+    input_type=_INSERTREQUEST,
+    output_type=_STATUSRESPONSE,
+    serialized_options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='Delete',
+    full_name='CRUD.Delete',
+    index=4,
+    containing_service=None,
+    input_type=_DATAID,
     output_type=_STATUSRESPONSE,
     serialized_options=None,
   ),
