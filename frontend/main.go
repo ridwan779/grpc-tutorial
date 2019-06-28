@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	address     = "localhost:55551"
+	address     = "crud-server:55551"
 )
 
 type Employee struct {

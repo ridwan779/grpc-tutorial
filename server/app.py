@@ -16,7 +16,7 @@ _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 class CRUD(crud_pb2_grpc.CRUDServicer):
 
     def Insert(self, request, context):
-        client = MongoClient()
+        client = MongoClient('mongo', 27017)
         db = client['crud-grpc']
         employee = db.employees
 
@@ -29,7 +29,7 @@ class CRUD(crud_pb2_grpc.CRUDServicer):
         return crud_pb2.StatusResponse(message='Success Insert Data With Name: ' + request.name)
 
     def List(self, request, context):
-        client = MongoClient()
+        client = MongoClient('mongo', 27017)
         db = client['crud-grpc']
         employee = db.employees
 
@@ -45,7 +45,7 @@ class CRUD(crud_pb2_grpc.CRUDServicer):
                 yield listdata
 
     def Show(self, request, context):
-        client = MongoClient()
+        client = MongoClient('mongo', 27017)
         db = client['crud-grpc']
         employee = db.employees
 
@@ -58,7 +58,7 @@ class CRUD(crud_pb2_grpc.CRUDServicer):
         )
 
     def Update(self, request, context):
-        client = MongoClient()
+        client = MongoClient('mongo', 27017)
         db = client['crud-grpc']
         employee = db.employees
 
@@ -71,7 +71,7 @@ class CRUD(crud_pb2_grpc.CRUDServicer):
         return crud_pb2.StatusResponse(message='Success Update Data With Name: ' + request.name)
 
     def Delete(self, request, context):
-        client = MongoClient()
+        client = MongoClient('mongo', 27017)
         db = client['crud-grpc']
         employee = db.employees
         
@@ -82,7 +82,7 @@ class CRUD(crud_pb2_grpc.CRUDServicer):
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     crud_pb2_grpc.add_CRUDServicer_to_server(CRUD(), server)
-    server.add_insecure_port('[::]:55551')
+    server.add_insecure_port('0.0.0.0:55551')
     server.start()
     try:
         while True:

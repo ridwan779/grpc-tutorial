@@ -8,14 +8,6 @@ services:
       - 27017:27017
     networks:
       - grpc_network
-  crud-client:
-    container_name: crud-client
-    build: frontend/
-    ports:
-      - 8080:8080
-      - 55551:55551
-    networks:
-      - grpc_network
   crud-server:
     container_name: crud-server
     build: server/
@@ -28,7 +20,18 @@ services:
       - MONGO_PORT=27017
     networks:
       - grpc_network
-
+  crud-client:
+    container_name: crud-client
+    build: frontend/
+    ports:
+      - 8080:8080
+    networks:
+      - grpc_network
+    environment:
+      - CGO_ENABLED=0 
+      - GOOS=linux
+    depends_on:
+      - crud-server
 networks: 
   grpc_network:
     name: grpc_network
