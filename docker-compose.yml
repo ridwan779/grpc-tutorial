@@ -4,15 +4,15 @@ services:
   mongo:
     container_name: mongo
     image: mongo:4-xenial
-    ports:
-      - 27017:27017
+    expose:
+      - "27017"
     networks:
       - grpc_network
   crud-server:
     container_name: crud-server
     build: server/
     ports:
-      - 55551:55551
+      - 44441:44441
     depends_on:
       - mongo
     environment:
