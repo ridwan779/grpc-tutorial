@@ -2,7 +2,7 @@ astroid==2.2.5
 autopep8==1.4.4
 colorama==0.4.1
 dataclasses==0.6
-Django==2.2.1
+Django==2.2.28
 djongo==1.2.32
 Faker==1.0.7
 grpcio==1.20.1
